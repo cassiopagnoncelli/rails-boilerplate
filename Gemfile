@@ -84,15 +84,15 @@ group :development do
   # gem "spring"
 
   # Annotate models.
-  #- gem "annotate"
+  gem "annotate"
 
   # Print
   gem "awesome_print"
   gem "table_print"
 
   # Better errors.
-  #- gem "better_errors"
-  #- gem "binding_of_caller"
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development, :test do
@@ -147,4 +147,3 @@ end
 
 # Engines.
 # gem 'stern', path: 'engines/stern'
-gem "sassc-rails"
