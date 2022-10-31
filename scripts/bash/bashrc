@@ -1,0 +1,12 @@
+alias ll='ls -lhG'
+alias l='ll'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias be='bundle exec'
+alias bi='bundle install'
+
+alias pg='psql -h db -U boilerplate -W'
+alias redis='redis-cli -h redis'
+alias mongodb='mongo --host mongo -u boilerplate -p boilerplate'
