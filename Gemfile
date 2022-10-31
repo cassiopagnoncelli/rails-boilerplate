@@ -128,10 +128,10 @@ end
 # gem "caxlsx_rails"
 
 # Feature flags.
-#- gem "flipper"
-# gem "flipper-active_record"
-#- gem "flipper-redis"
-#- gem "flipper-ui"
+gem "flipper"
+# gem "flipper-active_record"      # not working
+gem "flipper-redis"
+gem "flipper-ui"
 
 # Analytics.
 #- gem "ahoy_matey"
