@@ -39,18 +39,16 @@ gem "puma", "~> 5.6"
 
 # Background jobs.
 gem "sidekiq", "~> 6.5.7"
-# gem "sinatra"           # sinatra conflicts dependency rack-attack with flipper-ui
-
 gem "sidekiq-failures"
 gem "sidekiq-status"
 gem "sidekiq-benchmark"
 gem "sidekiq-throttled"
-gem "sidekiq-cron"   # 'sidekiq-cron', 'sidekiq-scheduler', both not working.
+gem "sidekiq-cron"
 
 gem "parallel"
 
 # Admin.
-#- gem "rails_admin"
+gem "rails_admin"
 
 # Authentication
 #- gem "jwt"
@@ -149,3 +147,4 @@ end
 
 # Engines.
 # gem 'stern', path: 'engines/stern'
+gem "sassc-rails"

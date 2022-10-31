@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   # Sidekiq
   Sidekiq::Throttled::Web.enhance_queues_tab!
   mount Sidekiq::Web => "/sidekiq"
+
+  # Rails admin.
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end
