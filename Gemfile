@@ -20,9 +20,8 @@ gem "sassc-rails"        # Use Sass to process CSS
 # gem "image_processing", "~> 1.2"    # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 
 # DevOps related.
-#- gem "health_check"
-
-#- gem "dotenv-rails", require: "dotenv/rails-now"
+# gem "dotenv-rails", require: "dotenv/rails-now"
+gem "health_check"
 
 # Databases, seed
 gem "pg", "~> 1.1"
