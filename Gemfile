@@ -28,6 +28,7 @@ gem "sassc-rails"        # Use Sass to process CSS
 gem "pg", "~> 1.1"
 #- gem "redis", "~> 4.0"
 gem "connection_pool"
+
 # gem "seedbank"
 
 # Caching
@@ -78,21 +79,6 @@ gem "puma", "~> 5.6"
 # Security
 # gem "bcrypt", "~> 3.1.7"     # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 
-group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-
-  # Linter.
-  #- gem "rubocop", require: false
-  #- gem "rubocop-performance", require: false
-
-  # Testing.
-  #- gem "rspec-rails"
-  #- gem "factory_bot_rails"
-  # gem "vcr"         # ?
-  # gem "webmock"
-end
-
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
@@ -112,6 +98,21 @@ group :development do
   # Better errors.
   #- gem "better_errors"
   #- gem "binding_of_caller"
+end
+
+group :development, :test do
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Linter.
+  #- gem "rubocop", require: false
+  #- gem "rubocop-performance", require: false
+
+  # Testing.
+  #- gem "rspec-rails"
+  #- gem "factory_bot_rails"
+  # gem "vcr"         # ?
+  # gem "webmock"
 end
 
 group :test do
@@ -145,8 +146,9 @@ end
 #- gem "geocoder"
 #- gem "maxminddb"
 
-# Track changes in models.
+# ActiveRecord.
 #- gem "paper_trail"
+#- gem "auto_strip_attributes"
 
 # Engines.
 # gem 'stern', path: 'engines/stern'
