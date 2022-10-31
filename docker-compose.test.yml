@@ -73,7 +73,6 @@ services:
       - db
       - redis
       - mongo
-      - sidekiq
     networks:
       - default
 

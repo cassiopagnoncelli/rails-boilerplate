@@ -83,7 +83,7 @@ services:
       - .env
     environment:
       # App.
-      PORT: 3000
+      PORT: 4000
       RAILS_ENV: development
       BUNDLE_PATH: /app/.bundle
       # Gems.
