@@ -25,7 +25,7 @@ gem "health_check"
 
 # Databases, seed
 gem "pg", "~> 1.1"
-#- gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 gem "connection_pool"
 
 # gem "seedbank"
@@ -38,18 +38,16 @@ gem "connection_pool"
 gem "puma", "~> 5.6"
 
 # Background jobs.
-#- gem "sidekiq"
+gem "sidekiq", "~> 6.5.7"
 # gem "sinatra"           # sinatra conflicts dependency rack-attack with flipper-ui
 
-#- gem "sidekiq-failures"
-#- gem "sidekiq-status"
-#- gem "sidekiq-benchmark"
-#- gem "sidekiq-throttled"
+gem "sidekiq-failures"
+gem "sidekiq-status"
+gem "sidekiq-benchmark"
+gem "sidekiq-throttled"
+gem "sidekiq-cron"   # 'sidekiq-cron', 'sidekiq-scheduler', both not working.
 
-#- gem "sidekiq-cron"
-#- gem "rufus-scheduler"
-
-#- gem "parallel"
+gem "parallel"
 
 # Admin.
 #- gem "rails_admin"

@@ -1,0 +1,5 @@
+---
+heartbeat_job:
+  cron: '* * * * *'
+  class: HeartbeatJob
+  queue: devops
