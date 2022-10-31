@@ -1,0 +1,31 @@
+ARG RUBY_VERSION=3.1.0
+ARG BUNDLE_VERSION=2.3.3
+
+FROM ruby:${RUBY_VERSION}
+LABEL maintainer="cassiopagnoncelli@gmail.com"
+
+ARG RUBY_VERSION
+ARG BUNDLE_VERSION
+
+# https://github.com/docker-library/docs/tree/master/ruby#encoding
+ENV LANG C.UTF-8
+
+RUN apt-get update -qq
+RUN apt-get install gnupg
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add -
+RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+RUN apt-get update -qq
+RUN apt-get install -y build-essential libpq-dev libxml2-dev libxslt1-dev postgresql-client redis vim mongodb-org-shell
+RUN gem install bundler -v ${BUNDLE_VERSION}
+
+COPY scripts/bash/bashrc /root/.bashrc
+
+RUN mkdir -p -m 0700 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+ENV SRC /src
+WORKDIR $SRC
+
+RUN gem install bundler -v ${BUNDLE_VERSION}
+ENV BUNDLE_PATH $SRC/.bundle

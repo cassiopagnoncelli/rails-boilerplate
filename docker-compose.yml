@@ -1,0 +1,110 @@
+version: '3'
+services:
+  db:
+    image: postgres:13.5
+    environment:
+      POSTGRES_DB: boilerplate_development
+      POSTGRES_USER: boilerplate
+      POSTGRES_PASSWORD: boilerplate
+      PGDATA: /var/lib/postgresql/data
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./scripts/postgres:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: pg_isready -d boilerplate_development -U boilerplate
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    networks:
+      - default
+
+  redis:
+    restart: always
+    image: redis:6.0-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./tmp/redis:/data
+    networks:
+      - default
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: boilerplate
+      MONGO_INITDB_ROOT_PASSWORD: boilerplate
+      MONGO_DBNAME: boilerplate
+    volumes:
+      - ./scripts/mongo:/docker-entrypoint-initdb.d
+
+  web:
+    image: 'boilerplate:latest'
+    # Add entry below to your /etc/hosts
+    # 127.0.0.1 boilerplate.dev
+    domainname: boilerplate.dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: bash -c "(bundle check || bundle install) && rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      # App.
+      PORT: 4000
+      RAILS_ENV: development
+      BUNDLE_PATH: /app/.bundle
+      # Gems.
+      DATABASE_URL: postgresql://boilerplate:boilerplate@db:5432/boilerplate_development
+      REDIS_URL: redis://redis
+      # # Engines.
+      # STERN_AUTOFILL_ENDING_BALANCE: 'true'
+      # STERN_PG_URL: postgresql://boilerplate:boilerplate@db:5432/stern_development
+      # STERN_PG_TEST_URL: postgresql://boilerplate:boilerplate@db:5432/stern_test
+    env_file:
+      - .env
+    ports:
+      - 4000:4000
+    depends_on:
+      - db
+      - redis
+      - mongo
+      - sidekiq
+    networks:
+      - default
+
+  sidekiq:
+    image: 'boilerplate:latest'
+    env_file:
+      - .env
+    environment:
+      # App.
+      PORT: 3000
+      RAILS_ENV: development
+      BUNDLE_PATH: /app/.bundle
+      # Gems.
+      DATABASE_URL: postgresql://boilerplate:boilerplate@db:5432/boilerplate_development
+      REDIS_URL: redis://redis
+      # # Engines.
+      # STERN_AUTOFILL_ENDING_BALANCE: 'true'
+      # STERN_PG_URL: postgresql://boilerplate:boilerplate@db:5432/stern_development
+      # STERN_PG_TEST_URL: postgresql://boilerplate:boilerplate@db:5432/stern_test
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: bash -c "(bundle check || bundle install) && bundle exec sidekiq -C config/sidekiq.yml"
+    depends_on:
+      - db
+      - redis
+    networks:
+      - default
+
+networks:
+  default:
+
+volumes:
+  pgdata:
