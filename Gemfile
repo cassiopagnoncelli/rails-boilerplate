@@ -138,8 +138,8 @@ end
 #- gem "rollups"
 
 # Geocoding
-#- gem "geocoder"
-#- gem "maxminddb"
+gem "geocoder"
+gem "maxminddb"
 
 # ActiveRecord.
 # gem "paper_trail"   # requires db:migrate

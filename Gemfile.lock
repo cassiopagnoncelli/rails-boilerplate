@@ -111,6 +111,7 @@ GEM
     fugit (1.7.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
+    geocoder (1.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
     health_check (3.1.0)
@@ -145,6 +146,7 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
+    maxminddb (0.1.22)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
@@ -324,9 +326,11 @@ DEPENDENCIES
   connection_pool
   debug
   factory_bot_rails
+  geocoder
   health_check
   importmap-rails
   jbuilder
+  maxminddb
   multi_json
   parallel
   pg (~> 1.1)
