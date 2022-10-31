@@ -142,8 +142,8 @@ end
 #- gem "maxminddb"
 
 # ActiveRecord.
-#- gem "paper_trail"
-#- gem "auto_strip_attributes"
+# gem "paper_trail"   # requires db:migrate
+gem "auto_strip_attributes"
 
 # Engines.
 # gem 'stern', path: 'engines/stern'
