@@ -51,14 +51,13 @@ gem "parallel"
 gem "rails_admin"
 
 # Authentication
-#- gem "jwt"
-#- gem "omniauth"            # ?
-#- gem "omniauth-google-oauth2", "~> 0.8.0"
-#- gem "devise"
+# gem "jwt"
+# gem "omniauth"
+# gem "omniauth-google-oauth2", "~> 0.8.0"
+# gem "devise"
 
 # Frontend
 # gem "slim-rails"
-# gem "table_print"
 # gem "ruby-progressbar"
 
 # Design patterns
@@ -88,7 +87,8 @@ group :development do
   #- gem "annotate"
 
   # Print
-  #- gem "awesome_print"
+  gem "awesome_print"
+  gem "table_print"
 
   # Better errors.
   #- gem "better_errors"
