@@ -51,10 +51,10 @@ gem "parallel"
 gem "rails_admin"
 
 # Authentication
-#- gem "jwt"
-#- gem "omniauth"
-#- gem "omniauth-google-oauth2", "~> 0.8.0"
-#- gem "devise"
+gem "jwt"
+# gem "omniauth"
+# gem "omniauth-google-oauth2"
+# gem "devise"
 
 # Frontend
 # gem "slim-rails"
@@ -129,13 +129,12 @@ end
 
 # Feature flags.
 gem "flipper"
-# gem "flipper-active_record"      # not working
 gem "flipper-redis"
 gem "flipper-ui"
 
 # Analytics.
-#- gem "ahoy_matey"
-#- gem "rollups"
+# gem "ahoy_matey"    # requires db:migrate
+# gem "rollups"
 
 # Geocoding
 gem "geocoder"
