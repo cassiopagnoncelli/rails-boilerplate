@@ -51,24 +51,24 @@ gem "parallel"
 gem "rails_admin"
 
 # Authentication
-# gem "jwt"
-# gem "omniauth"
-# gem "omniauth-google-oauth2", "~> 0.8.0"
-# gem "devise"
+#- gem "jwt"
+#- gem "omniauth"
+#- gem "omniauth-google-oauth2", "~> 0.8.0"
+#- gem "devise"
 
 # Frontend
 # gem "slim-rails"
 # gem "ruby-progressbar"
 
 # Design patterns
-#- gem "interactor-rails"
+# gem "interactor-rails"
 
 # API.
-#- gem "rack-cors"
-#- gem "rack-attack"
+gem "rack-cors"
+gem "rack-attack"
 
-#- gem "jbuilder"
-#- gem "multi_json"
+gem "jbuilder"
+gem "multi_json"
 
 # Security
 # gem "bcrypt", "~> 3.1.7"     # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
