@@ -1,10 +1,10 @@
 class HeartbeatJob < SidekiqBase
-  def perform(*args)
+  def perform(*_args)
     total 2
 
     at 1, "Updating timestamp"
 
-    $redis.with do |conn|
+    $redis.with do |conn| # rubocop:disable Style/GlobalVars
       conn.set('health_check', Time.now.to_i.to_s)
     end
 

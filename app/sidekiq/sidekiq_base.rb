@@ -38,6 +38,6 @@ class SidekiqBase
   end
 
   def serialized
-    { job_class: self.class.to_s, provider_job_id: self.jid }.stringify_keys.to_json
+    { job_class: self.class.to_s, provider_job_id: jid }.stringify_keys.to_json
   end
 end
