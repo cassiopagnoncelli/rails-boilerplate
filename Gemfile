@@ -104,9 +104,9 @@ group :development, :test do
   gem "rubocop-performance", require: false
 
   # Testing.
-  #- gem "rspec-rails"
-  #- gem "factory_bot_rails"
-  # gem "vcr"         # ?
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  # gem "vcr"
   # gem "webmock"
 end
 
