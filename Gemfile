@@ -31,8 +31,8 @@ gem "connection_pool"
 # gem "seedbank"
 
 # Caching
+gem "redis-actionpack"
 # gem "kredis"             # Use Kredis to get higher-level data types in Redis
-# gem "redis-actionpack"
 
 # App server.
 gem "puma", "~> 5.6"
