@@ -70,6 +70,10 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    ahoy_matey (4.1.0)
+      activesupport (>= 5.2)
+      device_detector
+      safely_block (>= 0.2.1)
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
@@ -99,7 +103,9 @@ GEM
       irb (>= 1.3.6)
       reline (>= 0.3.1)
     debug_inspector (1.1.0)
+    device_detector (1.0.7)
     diff-lcs (1.5.0)
+    errbase (0.2.2)
     erubi (1.11.0)
     et-orbi (1.2.7)
       tzinfo
@@ -125,6 +131,8 @@ GEM
     geocoder (1.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    groupdate (6.1.0)
+      activesupport (>= 5.2)
     health_check (3.1.0)
       railties (>= 5.0)
     i18n (1.12.0)
@@ -245,6 +253,9 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rollups (0.2.0)
+      activesupport (>= 5.2)
+      groupdate (>= 6.1)
     rspec-core (3.12.0)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.0)
@@ -281,6 +292,8 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
+    safely_block (0.3.0)
+      errbase (>= 0.1.1)
     sanitize (6.0.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -346,6 +359,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  ahoy_matey
   annotate
   auto_strip_attributes
   awesome_print
@@ -375,6 +389,7 @@ DEPENDENCIES
   rails_admin
   redis (~> 4.0)
   redis-actionpack
+  rollups
   rspec-rails
   rspec-sidekiq
   rubocop

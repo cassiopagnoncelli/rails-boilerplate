@@ -139,8 +139,8 @@ gem "flipper-redis"
 gem "flipper-ui"
 
 # Analytics.
-# gem "ahoy_matey"    # requires db:migrate
-# gem "rollups"
+gem "ahoy_matey"    # requires db:migrate
+gem "rollups"
 
 # Geocoding
 gem "geocoder"
