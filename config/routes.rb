@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   # Rails admin.
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  # Root.
+  root to: 'home#index'
 end
