@@ -5,7 +5,7 @@ require 'sidekiq/throttled/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
-  # Health check available at /health_check(.json)
+  devise_for :users
 
   # Sidekiq
   Sidekiq::Throttled::Web.enhance_queues_tab!
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   # Rails admin.
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  # Health check available at /health_check(.json)
 
   # Root.
   root to: 'home#index'
