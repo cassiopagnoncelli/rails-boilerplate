@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    head :200
+    render json: { data: "Authenticated." }
   end
 end
