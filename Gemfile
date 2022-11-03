@@ -117,6 +117,8 @@ group :test do
   # gem "capybara"
   # gem "selenium-webdriver"
   # gem "webdrivers"
+
+  gem 'rspec-sidekiq'
 end
 
 # Misc utilities.
