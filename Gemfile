@@ -28,6 +28,8 @@ gem "pg", "~> 1.1"
 gem "redis", "~> 4.0"
 gem "connection_pool"
 
+# gem "mongo", "~> 2.14.0"
+
 # gem "seedbank"
 
 # Caching

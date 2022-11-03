@@ -40,6 +40,8 @@ services:
       MONGO_DBNAME: boilerplate
     volumes:
       - ./scripts/mongo:/docker-entrypoint-initdb.d
+    networks:
+      - default
 
   web:
     image: 'boilerplate:latest'

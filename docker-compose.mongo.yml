@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: boilerplate
+      MONGO_INITDB_ROOT_PASSWORD: boilerplate
+      MONGO_DBNAME: boilerplate
+    volumes:
+      - ./scripts/mongo:/docker-entrypoint-initdb.d
+    networks:
+      - default
+
+networks:
+  default:
+    name: app_net
