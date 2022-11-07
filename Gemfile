@@ -54,9 +54,9 @@ gem "rails_admin"
 
 # Authentication
 gem "jwt"
-# gem "omniauth"
-# gem "omniauth-google-oauth2"
-# gem "devise"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "devise"
 
 # Frontend
 # gem "slim-rails"

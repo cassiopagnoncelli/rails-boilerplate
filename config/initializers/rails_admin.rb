@@ -7,7 +7,7 @@ RailsAdmin.config do |config|
   # config.authenticate_with do
   #   warden.authenticate! scope: :user
   # end
-  # config.current_user_method(&:current_user)
+  config.current_user_method(&:current_user)
 
   ## == CancanCan ==
   # config.authorize_with :cancancan
@@ -25,7 +25,11 @@ RailsAdmin.config do |config|
   # config.show_gravatar = true
 
   config.main_app_name = lambda do |controller|
-    ['Boilerplate', "rails_admin | #{controller.params[:action].try(:titleize)}"]
+    [
+      "Boilerplace",
+      "Logged user: #{current_user.inspect}",
+      "#{controller.params[:action].try(:titleize)}",
+    ].join(' | ')
   end
 
   config.actions do
